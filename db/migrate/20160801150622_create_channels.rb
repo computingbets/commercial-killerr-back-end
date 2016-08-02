@@ -1,7 +1,7 @@
 class CreateChannels < ActiveRecord::Migration
   def change
     create_table :channels do |t|
-      t.string :name
+      t.integer :name
       t.boolean :ads
 
       t.timestamps null: false
