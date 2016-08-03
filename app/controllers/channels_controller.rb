@@ -9,6 +9,12 @@ class ChannelsController < ApplicationController
     render json: @channels
   end
 
+  def search
+    @channels = Channel.all
+      @channel = @channels.select {|c| c.name==params[:number]}
+    render json: @channel
+  end
+
   # GET /channels/1
   # GET /channels/1.json
   def show
