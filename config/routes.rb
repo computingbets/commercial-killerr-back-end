@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :votes, except: [:destroy] 
   resources :channels #, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
