@@ -1,3 +1,4 @@
+#
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :update, :destroy]
 
@@ -18,7 +19,7 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    #@vote = Vote.new(vote_params)
+    # @vote = Vote.new(vote_params)
     # @vote.created_by = current_user.id
     @vote = current_user.votes.build(vote_params)
 
@@ -29,8 +30,10 @@ class VotesController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /votes/1
   # PATCH/PUT /votes/1.json
+
   def update
     @vote = Vote.find(params[:id])
     @vote.created_by = current_user.id
@@ -51,11 +54,11 @@ class VotesController < ApplicationController
 
   private
 
-    def set_vote
-      @vote = Vote.find(params[:id])
-    end
+  def set_vote
+    @vote = Vote.find(params[:id])
+  end
 
-    def vote_params
-      params[:vote]
-    end
+  def vote_params
+    params[:vote]
+  end
 end
